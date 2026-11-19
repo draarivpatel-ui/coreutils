@@ -431,9 +431,8 @@ enum OffloadReflinkDebug {
 
 /// Enum representing various debug states of the sparse detection.
 #[derive(Debug)]
-#[allow(dead_code)] // silent for now until we use them
+#[allow(dead_code)] // Some variants are only used on specific platforms.
 enum SparseDebug {
-    Unknown,
     No,
     Zeros,
     SeekHole,
@@ -470,7 +469,6 @@ impl Display for SparseDebug {
             Self::SeekHole => translate!("cp-debug-enum-seek-hole"),
             Self::SeekHoleZeros => translate!("cp-debug-enum-seek-hole-zeros"),
             Self::Unsupported => translate!("cp-debug-enum-unsupported"),
-            Self::Unknown => translate!("cp-debug-enum-unknown"),
         };
         write!(f, "{msg}")
     }
